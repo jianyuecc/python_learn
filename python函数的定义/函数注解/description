@@ -1,0 +1,16 @@
+函数注解 是关于用户自定义的函数的完全可选的、随意的元数据信息。无论
+n 本身或者标准库中都没有使用函数注解；本节只是描述了语法。第三方的
+项目是自由地为文档，类型检查，以及其它用途选择函数注解。
+注解是以字典形式存储在函数的 __annotations__ 属性中，对函数的其它部分没有
+任何影响。参数注解（Parameter annotations）是定义在参数名称的冒号后面，紧
+随着一个用来表示注解的值得表达式。返回注释（Return annotations）是定义在
+一个 ‐> 后面，紧随着一个表达式，在冒号与 ‐> 之间。下面的示例包含一个位置
+参数，一个关键字参数，和没有意义的返回值注释:
+>>> def f(ham: 42, eggs: int = 'spam') ‐> "Nothing to see here":
+... print("Annotations:", f.__annotations__)
+... print("Arguments:", ham, eggs)
+...
+>>> f('wonderful')
+Annotations: {'eggs': <class 'int'>, 'return': 'Nothing to see here', 'ham': 42}
+Arguments: wonderful spam
+
